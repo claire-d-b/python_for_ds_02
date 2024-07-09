@@ -53,7 +53,7 @@ def display_graph(df: DataFrame):
 
     figure(figsize=(8, 5))
     plot(nklist, vlist)
-    title('Age Distribution')
+    title('Life Expectancy Years')
     xlabel(key)
     ylabel(value)
     legend()

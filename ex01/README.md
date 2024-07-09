@@ -15,5 +15,5 @@ python aff_life.py
 
 deactivate
 
-rm -rf pycache
+rm -rf __pycache__
 rm -rf venv
