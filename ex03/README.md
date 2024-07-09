@@ -17,3 +17,8 @@ deactivate
 
 rm -rf __pycache__
 rm -rf venv
+
+<!-- Setting the x-axis scale to logarithmic (set_xscale('log')) in Matplotlib is useful when you have data that spans several orders of magnitude, such as scientific data or financial data.
+
+Logarithmic scaling transforms the data such that each tick mark on the axis represents a power of the base of the logarithm (usually base 10 or base e). This transformation compresses a wide range of values into a more manageable visual range, making it easier to observe variations across different scales.
+-->

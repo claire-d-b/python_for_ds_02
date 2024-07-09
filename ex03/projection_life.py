@@ -1,4 +1,4 @@
-from matplotlib.pyplot import figure, plot, grid, xticks, yticks, title, xlabel, ylabel, legend, show, tight_layout, scatter
+from matplotlib.pyplot import figure, plot, grid, xticks, yticks, title, xlabel, ylabel, legend, show, tight_layout, scatter, subplots
 from pandas import DataFrame
 from load_csv import load
 
@@ -56,13 +56,32 @@ def display_points(frame_x: DataFrame, frame_y: DataFrame) -> None:
 
     list_x = get_values(frame_x, '1900')
     list_y = get_values(frame_y, '1900')
-    print(list_x, list_y)
-    figure(figsize=(8, 5))
-    scatter(list_y, list_x)
-    title('1900')
-    xlabel('Gross Domestic product')
-    ylabel('Life Expectancy')
-    xticks([0, 1000, 10000], ['300', '1k', '10k'])
+
+    # Custom positions and labels for the x-axis
+    x_positions = [300, 1000, 10000]
+    x_labels = ['300', '1k', '10k']
+
+    fig, ax = subplots()
+    ax.scatter(list_y, list_x)
+
+    # Set the x-axis to logarithmic scale
+    ax.set_xscale('log')
+
+    # Set custom ticks and labels for the x-axis
+    ax.set_xticks(x_positions)
+    ax.set_xticklabels(x_labels)
+
+    # x_labels = ['300', '1k', '10k']
+    # # Set custom labels for the x-axis
+    # ax.set_xticklabels(x_labels)
+    # ax.set_xticks([0, 1000, 10000])
+
+    # Customize the plot
+    ax.set_title("1900")
+    ax.set_xlabel("Gross Domestic product")
+    ax.set_ylabel("Life Expectancy")
+
+    # Display the plot
     legend()
     tight_layout()
     show()
