@@ -86,10 +86,7 @@ def display_graph(x1: list, y1: list, x2: list, y2: list) -> None:
     title('Population Total')
     xlabel('Year')
     ylabel('Population')
-    min1, mid1, max1 = min(y1), (min(y1) + max(y1)) / 2, max(y1)
-    min2, mid2, max2 = min(y2), (min(y2) + max(y2)) / 2, max(y2)
-    nmin, nmid, nmax = (min1 + min2) / 2, (mid1 + mid2) / 2, (max1 + max2) / 2, 
-    
+
     yticks([20000000, 40000000, 60000000], ['20M', '40M', '60M'])
     legend()
     tight_layout()
