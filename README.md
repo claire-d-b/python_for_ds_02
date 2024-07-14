@@ -11,6 +11,9 @@ pip uninstall matplotlib
 pip install pandas
 pip install matplotlib
 
+pip install flake8
+alias norminette=flake8
+
 python projection_life.py
 
 deactivate
