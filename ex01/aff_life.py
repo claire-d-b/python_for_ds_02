@@ -6,7 +6,7 @@ from load_csv import load
 
 def display_graph(df: DataFrame):
 
-    # Search for a keyword in the entire DataFrame
+    """ Search for a keyword in the entire DataFrame """
     keyword = "France"
     nlist = df.iloc[0].tolist()
     ret = []

@@ -5,10 +5,8 @@ from load_csv import load
 
 
 def convert_to_int(value):
-    """
-    Convert a string with a suffix like 'M' (million) or 'K' (thousand) \
-    to an integer.
-    """
+    """ Convert a string with a suffix like 'M' (million) or 'K' (thousand) \
+    to an integer. """
     if not value:
         return 0
     if isinstance(value, int):
@@ -27,7 +25,7 @@ def convert_to_int(value):
 
 def get_line(df: DataFrame, keyword: str):
 
-    # Search for a keyword in the entire DataFrame
+    """ Search for a keyword in the entire DataFrame """
     nlist = df.iloc[0].tolist()
     ret = []
 

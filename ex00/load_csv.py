@@ -9,7 +9,7 @@ def load(path: str) -> DataFrame:
         with open('src/life_expectancy_years.csv', 'r') as file:
             nlist = []
 
-            # Read the first line (header)
+            """ Read the first line (header) """
             nlist.append(file.readline().strip().lstrip('\ufeff').split(','))
             j = len(nlist[0])
             i = 0
