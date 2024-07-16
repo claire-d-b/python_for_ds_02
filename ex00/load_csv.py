@@ -4,9 +4,7 @@ from pandas import DataFrame
 def load(path: str) -> DataFrame:
     num_rows, num_cols = 0, 0
     try:
-        assert open('src/life_expectancy_years.csv', 'r'), "Unable to \
-        open file"
-        with open('src/life_expectancy_years.csv', 'r') as file:
+        with open(path, 'r') as file:
             nlist = []
 
             """ Read the first line (header) """
@@ -25,7 +23,11 @@ def load(path: str) -> DataFrame:
             size = (num_rows, num_cols)
             print("Loading dataset of dimensions ", size)
 
-    except AssertionError as e:
-        print(f"AssertionError: {e}")
+            return df
 
-    return df
+    except FileNotFoundError:
+        print("File not found")
+    except IOError:
+        print("An IOError occurred")
+
+    return None

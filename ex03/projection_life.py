@@ -5,24 +5,26 @@ from load_csv import load
 
 def get_values(df: DataFrame, keyword: str):
 
-    """ Search for a keyword in the entire DataFrame """
-    nlist = df.iloc[0].tolist()
-    ret = []
-    for item in nlist:
-        ret.append(str(item).strip())
+    try:
+        assert isinstance(df, DataFrame), "Error"
+        """ Search for a keyword in the entire DataFrame """
+        nlist = df.iloc[0].tolist()
+        ret = []
+        for item in nlist:
+            ret.append(str(item).strip())
 
-    vlist = []
+        vlist = []
 
-    row_data = df[keyword]
-    print("raw data", row_data)
-    print("shape", row_data.shape)
+        row_data = df[keyword]
 
-    data = row_data
+        data = row_data
 
-    for d in data:
-        vlist.append(d)
+        for d in data:
+            vlist.append(d)
 
-    return (vlist)
+        return (vlist)
+    except AssertionError as e:
+        print(f"An unexpected error occurred: {e}")
 
 
 def display_points(frame_x: DataFrame, frame_y: DataFrame) -> None:
@@ -56,12 +58,18 @@ def display_points(frame_x: DataFrame, frame_y: DataFrame) -> None:
 
 
 def main():
-
-    frame_x = load("src/life_expectancy_years.csv")
-    frame_y = load("src/\
-    income_per_person_gdppercapita_ppp_inflation_adjusted.csv")
-    display_points(frame_x, frame_y)
-
+    try:
+        frame_x = load("src/life_expectancy_years.csv")
+        frame_y = load("src/\
+        income_per_person_gdppercapita_ppp_inflation_adjusted.csv")
+        display_points(frame_x, frame_y)
+        frame_y = load("\
+        income_per_person_gdppercapita_ppp_inflation_adjusted.csv")
+        display_points(frame_x, frame_y)
+    except TypeError as e:
+        print(f"TypeError: {e}")
+    except ValueError as e:
+        print(f"ValueError: {e}")
 
 if __name__ == "__main__":
     main()
