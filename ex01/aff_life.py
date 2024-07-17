@@ -15,7 +15,8 @@ def display_graph(df: DataFrame):
         for item in nlist:
             ret.append(str(item).strip())
 
-        data = df[df.map(lambda x: keyword.lower() in str(x).lower()).any(axis=1)]
+        data = df[df.map(lambda x: keyword.lower() in
+                         str(x).lower()).any(axis=1)]
 
         width, height = data.shape
 

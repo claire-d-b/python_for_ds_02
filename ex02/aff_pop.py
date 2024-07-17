@@ -34,7 +34,8 @@ def get_line(df: DataFrame, keyword: str):
         for item in nlist:
             ret.append(str(item).strip())
 
-        data = df[df.map(lambda x: keyword.lower() in str(x).lower()).any(axis=1)]
+        data = df[df.map(lambda x: keyword.lower() in
+                         str(x).lower()).any(axis=1)]
 
         width, height = data.shape
 
@@ -69,7 +70,8 @@ def get_line(df: DataFrame, keyword: str):
         print(f"An unexpected error occurred: {e}")
 
 
-def display_graph(x1: list, y1: list, x2: list, y2: list, kword1: str, kword2: str) -> None:
+def display_graph(x1: list, y1: list, x2: list, y2: list,
+                  kword1: str, kword2: str) -> None:
     figure(figsize=(8, 5))
     plot(x1, y1, label=kword1)
     plot(x2, y2, label=kword2)
@@ -93,7 +95,6 @@ def main():
         display_graph(x1, y1, x2, y2, "France", "Belgium")
     except TypeError as e:
         print(f"TypeError: {e}")
-
 
 
 if __name__ == "__main__":
